@@ -7,7 +7,7 @@ option go_package = "github.com/AlpacaLabs/protorepo-auth-go/alpacalabs/auth/v1"
 option java_multiple_files = true;
 option java_outer_classname = "AuthProto";
 option java_package = "com.alpacalabs.auth.v1";
-option objc_class_prefix = "IAX";
+option objc_class_prefix = "ALA";
 option php_namespace = "AlpacaLabs\\Auth\\V1";
 
 // internal-only request to create a token on behalf of a newly signed up user

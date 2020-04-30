@@ -7,7 +7,7 @@ option go_package = "github.com/AlpacaLabs/protorepo-pagination-go/alpacalabs/pa
 option java_multiple_files = true;
 option java_outer_classname = "PaginationProto";
 option java_package = "com.alpacalabs.pagination.v1";
-option objc_class_prefix = "IPX";
+option objc_class_prefix = "ALP";
 option php_namespace = "AlpacaLabs\\Pagination\\V1";
 
 enum Sort {
