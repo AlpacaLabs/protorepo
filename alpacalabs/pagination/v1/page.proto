@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package alpacalabs.pagination.v1;
+
+option csharp_namespace = "AlpacaLabs.Pagination.V1";
+option go_package = "github.com/AlpacaLabs/protorepo-pagination-go/alpacalabs/pagination/v1";
+option java_multiple_files = true;
+option java_outer_classname = "PaginationProto";
+option java_package = "com.alpacalabs.pagination.v1";
+option objc_class_prefix = "IPX";
+option php_namespace = "AlpacaLabs\\Pagination\\V1";
+
+enum Sort {
+    SORT_UNSPECIFIED = 0;
+    SORT_ASC = 1;
+    SORT_DESC = 2;
+}
+
+// CursorRequest provides metadata for cursor pagination.
+// See https://developer.twitter.com/en/docs/basics/cursoring.
+message CursorRequest {
+    // Cursor is inclusive.
+    string cursor = 1;
+
+    // Count is how many elements the client wishes to fetch.
+    // Endpoints should set a maximum number of elements that can be returned.
+    int32 count = 2;
+}
+
+message CursorResponse {
+    // PreviousCursor is the cursor the client sent in their CursorRequest.
+    string previous_cursor = 1;
+
+    // NextCursor is the cursor clients should use to request the next page.
+    string next_cursor = 2;
+
+    // Count is the page size, the number of elements in the page.
+    int32 count = 3;
+}

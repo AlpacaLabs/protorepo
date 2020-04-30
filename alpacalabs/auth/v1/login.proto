@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package alpacalabs.auth.v1;
+
+option csharp_namespace = "AlpacaLabs.Auth.V1";
+option go_package = "github.com/AlpacaLabs/protorepo-auth-go/alpacalabs/auth/v1";
+option java_multiple_files = true;
+option java_outer_classname = "AuthProto";
+option java_package = "com.alpacalabs.auth.v1";
+option objc_class_prefix = "IAX";
+option php_namespace = "AlpacaLabs\\Auth\\V1";
+
+// Request for logging in.
+message LoginRequest {
+    // email
+    string email_address = 1;
+    // password
+    string password = 2;
+    // device type
+    string device_type = 3;
+    // device id
+    string device_id = 4;
+}
+
+// Response containing your new JWT.
+message LoginResponse {
+    // JWT (json web token)
+    string jwt = 1;
+}
+
+// Service to login.
+service LoginService {
+    // Login.
+    rpc Login(LoginRequest) returns (LoginResponse) {}
+}

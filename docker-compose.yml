@@ -1,0 +1,8 @@
+version: '3.7'
+services:
+  all:
+    image: namely/protoc-all
+    volumes:
+      - ./${TARGET}:/defs
+  buf:
+    image: bufbuild/buf

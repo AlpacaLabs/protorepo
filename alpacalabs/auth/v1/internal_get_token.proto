@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package alpacalabs.auth.v1;
+
+option csharp_namespace = "AlpacaLabs.Auth.V1";
+option go_package = "github.com/AlpacaLabs/protorepo-auth-go/alpacalabs/auth/v1";
+option java_multiple_files = true;
+option java_outer_classname = "AuthProto";
+option java_package = "com.alpacalabs.auth.v1";
+option objc_class_prefix = "IAX";
+option php_namespace = "AlpacaLabs\\Auth\\V1";
+
+// internal-only request to create a token on behalf of a newly signed up user
+message GetTokenRequest {
+    // account ID
+    string account_id = 1;
+
+    // email
+    string email_address = 2;
+
+    // device type
+    string device_type = 3;
+
+    // device id
+    string device_id = 4;
+}
+
+// internal-only response containing a token for use by a newly signed up user
+message GetTokenResponse {
+    // jwt
+    string jwt = 1;
+}
+
+// service for requesting a token
+service GetTokenService {
+    // GetToken requests a token for the current user.
+    // This endpoint issues a token without requiring a password.
+    // That is only safe to do because it's meant to be internal-only.
+    rpc GetToken(GetTokenRequest) returns (GetTokenResponse) {}
+}
