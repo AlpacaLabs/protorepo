@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package alpacalabs.auth.v1;
+
+option csharp_namespace = "AlpacaLabs.Auth.V1";
+option go_package = "github.com/AlpacaLabs/protorepo-auth-go/alpacalabs/auth/v1";
+option java_multiple_files = true;
+option java_outer_classname = "AuthProto";
+option java_package = "com.alpacalabs.auth.v1";
+option objc_class_prefix = "ALA";
+option php_namespace = "AlpacaLabs\\Auth\\V1";
+
+import "google/protobuf/timestamp.proto";
+
+message EmailAddress {
+    string id = 1;
+    google.protobuf.Timestamp created_at = 2;
+    google.protobuf.Timestamp last_modified_at = 3;
+    bool deleted = 4;
+    google.protobuf.Timestamp deleted_at = 5;
+
+    bool confirmed = 6;
+    bool primary = 7;
+    string email_address = 8;
+    string account_id = 9;
+}
