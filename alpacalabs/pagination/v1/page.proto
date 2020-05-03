@@ -16,6 +16,11 @@ enum Sort {
     SORT_DESC = 2;
 }
 
+message SortClause {
+    string field_name = 1;
+    Sort sort = 2;
+}
+
 // CursorRequest provides metadata for cursor pagination.
 // See https://developer.twitter.com/en/docs/basics/cursoring.
 message CursorRequest {
@@ -25,6 +30,8 @@ message CursorRequest {
     // Count is how many elements the client wishes to fetch.
     // Endpoints should set a maximum number of elements that can be returned.
     int32 count = 2;
+
+    repeated SortClause sort_clauses = 3;
 }
 
 message CursorResponse {
