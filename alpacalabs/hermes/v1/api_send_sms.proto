@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package alpacalabs.hermes.v1;
+
+option csharp_namespace = "AlpacaLabs.Hermes.V1";
+option go_package = "github.com/AlpacaLabs/protorepo-hermes-go/alpacalabs/hermes/v1";
+option java_multiple_files = true;
+option java_outer_classname = "HermesProto";
+option java_package = "com.alpacalabs.hermes.v1";
+option objc_class_prefix = "ALH";
+option php_namespace = "AlpacaLabs\\Hermes\\V1";
+
+message SendSmsRequest {
+    string to = 1;
+    string message = 2;
+}
+
+message SendSmsResponse {}
+
+service SendSmsService {
+    rpc SendSms(SendSmsRequest) returns (SendSmsResponse) {}
+}
