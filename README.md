@@ -9,6 +9,7 @@ Each directory corresponds to a microservice and specifies all provided Protocol
 | Service                                                                                    | Bindings                                                               |
 | ------------------------------------------------------------------------------------------ |:----------------------------------------------------------------------:|
 | [Auth](https://github.com/AlpacaLabs/protorepo/tree/master/alpacalabs/auth/v1)             | [go](https://github.com/AlpacaLabs/protorepo-auth-go)                  |
+| [Hermes](https://github.com/AlpacaLabs/protorepo/tree/master/alpacalabs/hermes/v1)         | [go](https://github.com/AlpacaLabs/protorepo-hermes-go)                |
 | [Pagination](https://github.com/AlpacaLabs/protorepo/tree/master/alpacalabs/pagination/v1) | [go](https://github.com/AlpacaLabs/protorepo-pagination-go)            |
 
 ### What is a Protocol Buffer?

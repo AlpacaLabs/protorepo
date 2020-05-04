@@ -1,0 +1,87 @@
+syntax = "proto3";
+
+package alpacalabs.hermes.v1;
+
+option csharp_namespace = "AlpacaLabs.Hermes.V1";
+option go_package = "github.com/AlpacaLabs/protorepo-hermes-go/alpacalabs/hermes/v1";
+option java_multiple_files = true;
+option java_outer_classname = "HermesProto";
+option java_package = "com.alpacalabs.hermes.v1";
+option objc_class_prefix = "ALH";
+option php_namespace = "AlpacaLabs\\Hermes\\V1";
+
+message Recipient {
+    string email = 1;
+    string name = 2;
+}
+
+message Entry {
+    string key = 1;
+    string value = 2;
+}
+
+message EntryList {
+    repeated Entry list = 1;
+}
+
+message Table {
+    repeated EntryList data = 1;
+    Columns columns = 2;
+}
+
+message Columns {
+    map<string, string> custom_width = 1;
+    map<string, string> custom_alignment = 2;
+}
+
+message Action {
+    string instructions = 1;
+    Button button = 2;
+}
+
+message Button {
+    string color = 1;
+    string text_color = 2;
+    string text = 3;
+    string link = 4;
+}
+
+message Body {
+    // Name of the contacted person
+    string name = 1;
+
+    // Intro sentences, first displayed in the email
+    repeated string intros = 2;
+
+    // A list of key+value (useful for displaying parameters/settings/personal info)
+    repeated Entry dictionary = 3;
+
+    // Table is an table where you can put data (pricing grid, a bill, and so on)
+    Table table = 4;
+
+    // Actions are a list of actions that the user will be able to execute via a button click
+    repeated Action actions = 5;
+
+    // Outro sentences, last displayed in the email
+    repeated string outros = 6;
+
+    // Greeting for the contacted person (default to 'Hi')
+    string greeting = 7;
+
+    // Signature for the contacted person (default to 'Yours truly')
+    string signature = 8;
+
+    // Title replaces the greeting+name when set
+    string title = 9;
+
+    // Free markdown content that replaces all content other than header and footer
+    string markdown = 10;
+}
+
+message Email {
+    string subject = 1;
+    Body body = 2;
+    repeated Recipient to = 3;
+    repeated Recipient cc = 4;
+    repeated Recipient bcc = 5;
+}
