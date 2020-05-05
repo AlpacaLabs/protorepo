@@ -10,15 +10,15 @@ option java_package = "com.alpacalabs.password.v1";
 option objc_class_prefix = "ALP";
 option php_namespace = "AlpacaLabs\\Password\\V1";
 
-// TODO this is a dupe of ResetPasswordRequest
-message UpdatePasswordRequest {
-    string account_id = 1;
-    string new_password = 2;
-}
-
-message UpdatePasswordResponse {}
+import "alpacalabs/password/v1/api_start_reset_flow.proto";
+import "alpacalabs/password/v1/verify_code.proto";
 
 service PasswordService {
-    rpc UpdatePassword(UpdatePasswordRequest) returns (UpdatePasswordResponse) {}
-    // TODO add GetVerificationOptions rpc
+    // initiate the password reset flow by providing an account identifier,
+    // which can be a username, email, or phone number.
+    // the account's primary email address will be emailed w/ the reset code.
+    rpc StartResetFlow(StartResetFlowRequest) returns (StartResetFlowResponse) {}
+
+    // complete the password reset flow by sending the reset code, the account id, and the new password
+    rpc VerifyCode (VerifyCodeRequest) returns (VerifyCodeResponse) {}
 }

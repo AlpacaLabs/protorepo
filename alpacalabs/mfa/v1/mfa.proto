@@ -35,15 +35,3 @@ message MFACode {
     // all previously issued codes are rendered stale.
     bool stale = 7;
 }
-
-message VerifyMFACodeRequest {
-    string code = 1;
-    string account_id = 2;
-}
-
-message VerifyMFACodeResponse {}
-
-service MFAService {
-    rpc VerifyMFACode (VerifyMFACodeRequest) returns (VerifyMFACodeResponse) {}
-    // TODO add GetVerificationOptions rpc
-}

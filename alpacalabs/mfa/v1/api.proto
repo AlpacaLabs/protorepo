@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package alpacalabs.mfa.v1;
+
+option csharp_namespace = "AlpacaLabs.Mfa.V1";
+option go_package = "github.com/AlpacaLabs/protorepo-mfa-go/alpacalabs/mfa/v1";
+option java_multiple_files = true;
+option java_outer_classname = "MfaProto";
+option java_package = "com.alpacalabs.mfa.v1";
+option objc_class_prefix = "ALM";
+option php_namespace = "AlpacaLabs\\Mfa\\V1";
+
+import "alpacalabs/mfa/v1/verification_options.proto";
+import "alpacalabs/mfa/v1/verify_code.proto";
+
+service MFAService {
+    // initiate the MFA flow by providing an account ID.
+    // the response will contain phone numbers and email addresses
+    // that can receive the client's MFA code.
+    rpc GetCodeOptions(GetCodeOptionsRequest) returns (GetCodeOptionsResponse) {}
+
+    // TODO add another rpc, SendCode(deviceType(phone|email), codePK)
+
+    // complete the MFA flow by sending the code and account ID.
+    rpc VerifyMFACode (VerifyMFACodeRequest) returns (VerifyMFACodeResponse) {}
+}
