@@ -30,7 +30,7 @@ message CreateAccountResponse {
 message GetAccountRequest {
     oneof account_identifier {
         // look up account by primary key
-        string id = 1;
+        string account_id = 1;
 
         // look up account by confirmed email address
         string email_address = 2;
