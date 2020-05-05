@@ -26,3 +26,23 @@ message CreateAccountRequest {
 message CreateAccountResponse {
     Account account = 1;
 }
+
+message GetAccountRequest {
+    oneof account_identifier {
+        // look up account by primary key
+        string id = 1;
+
+        // look up account by confirmed email address
+        string email_address = 2;
+
+        // look up account by confirmed phone number
+        string phone_number = 3;
+
+        // look up account by username
+        string username = 4;
+    }
+}
+
+message GetAccountResponse {
+    Account account = 1;
+}

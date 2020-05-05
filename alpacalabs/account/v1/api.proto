@@ -15,6 +15,7 @@ import "alpacalabs/account/v1/api_email.proto";
 
 service AccountService {
     rpc CreateAccount(CreateAccountRequest) returns (CreateAccountResponse) {}
+    rpc GetAccount(GetAccountRequest) returns (GetAccountResponse) {}
 
     rpc CreateEmailAddress(CreateEmailAddressRequest) returns (CreateEmailAddressResponse) {}
     rpc ConfirmEmailAddress(ConfirmEmailAddressRequest) returns (ConfirmEmailAddressResponse) {}

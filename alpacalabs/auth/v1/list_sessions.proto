@@ -12,7 +12,7 @@ option php_namespace = "AlpacaLabs\\Auth\\V1";
 
 import "alpacalabs/auth/v1/session.proto";
 
-// Request to list your sessions.
+// Request to list your sessions...
 message ListMySessionsRequest {}
 
 // Response containing a list of your sessions.

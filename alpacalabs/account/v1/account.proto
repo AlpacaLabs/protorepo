@@ -11,7 +11,11 @@ option objc_class_prefix = "ALA";
 option php_namespace = "AlpacaLabs\\Account\\V1";
 
 import "google/protobuf/timestamp.proto";
+import "alpacalabs/account/v1/email.proto";
+import "alpacalabs/account/v1/phone_number.proto";
 
 message Account {
     string id = 1;
+    repeated EmailAddress email_addresses = 2;
+    repeated PhoneNumber phone_numbers = 3;
 }
