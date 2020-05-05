@@ -10,12 +10,13 @@ option java_package = "com.alpacalabs.mfa.v1";
 option objc_class_prefix = "ALM";
 option php_namespace = "AlpacaLabs\\Mfa\\V1";
 
-message GetCodeOptionsRequest {
+message GetDeliveryOptionsRequest {
     string account_id = 1;
 }
 
-message GetCodeOptionsResponse {
-    CodeOptions code_options = 1;
+message GetDeliveryOptionsResponse {
+    string code_id = 1;
+    CodeOptions code_options = 2;
 }
 
 message PhoneNumberOption {
@@ -40,7 +41,6 @@ message EmailAddressOption {
     string email_address = 3;
 }
 
-// TODO move this to MFA package since you shouldn't be able to reset a password w/ phone, only email
 message CodeOptions {
     repeated PhoneNumberOption phone_numbers = 1;
     repeated EmailAddressOption email_addresses = 2;
