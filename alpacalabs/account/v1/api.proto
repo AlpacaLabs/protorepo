@@ -12,14 +12,21 @@ option php_namespace = "AlpacaLabs\\Account\\V1";
 
 import "alpacalabs/account/v1/api_account.proto";
 import "alpacalabs/account/v1/api_email.proto";
+import "alpacalabs/account/v1/api_phone_number.proto";
 
 service AccountService {
     rpc CreateAccount(CreateAccountRequest) returns (CreateAccountResponse) {}
     rpc GetAccount(GetAccountRequest) returns (GetAccountResponse) {}
 
-    rpc CreateEmailAddress(CreateEmailAddressRequest) returns (CreateEmailAddressResponse) {}
+    rpc AddEmailAddress(AddEmailAddressRequest) returns (AddEmailAddressResponse) {}
     rpc ConfirmEmailAddress(ConfirmEmailAddressRequest) returns (ConfirmEmailAddressResponse) {}
     rpc GetEmailAddresses(GetEmailAddressesRequest) returns (GetEmailAddressesResponse) {}
     rpc GetEmailAddressByID(GetEmailAddressByIDRequest) returns (GetEmailAddressByIDResponse) {}
     rpc GetEmailAddressesForAccountID(GetEmailAddressesForAccountIDRequest) returns (GetEmailAddressesForAccountIDResponse) {}
+
+    rpc AddPhoneNumber(AddPhoneNumberRequest) returns (AddPhoneNumberResponse) {}
+    rpc ConfirmPhoneNumber(ConfirmPhoneNumberRequest) returns (ConfirmPhoneNumberResponse) {}
+    rpc GetPhoneNumbers(GetPhoneNumbersRequest) returns (GetPhoneNumbersResponse) {}
+    rpc GetPhoneNumberByID(GetPhoneNumberByIDRequest) returns (GetPhoneNumberByIDResponse) {}
+    rpc GetPhoneNumbersForAccountID(GetPhoneNumbersForAccountIDRequest) returns (GetPhoneNumbersForAccountIDResponse) {}
 }

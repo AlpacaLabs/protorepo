@@ -10,32 +10,7 @@ option java_package = "com.alpacalabs.confirmation.v1";
 option objc_class_prefix = "ALC";
 option php_namespace = "AlpacaLabs\\Confirmation\\V1";
 
-import "google/protobuf/timestamp.proto";
-
-message EmailAddressConfirmationCode {
-    // primary key
-    string id = 1;
-
-    // the email address associated with this code
-    string email_address_id = 2;
-
-    // a randomly generated code
-    string code = 3;
-
-    // when the code was generated
-    google.protobuf.Timestamp created_at = 4;
-
-    // when the code expires
-    google.protobuf.Timestamp expires_at = 5;
-
-    // indicates whether a code has been used. Once used, all codes
-    // that belong to the account become stale.
-    bool used = 6;
-
-    // if true, this code cannot be used. When a user uses a code,
-    // all previously issued codes are rendered stale.
-    bool stale = 7;
-}
+import "alpacalabs/confirmation/v1/confirmation_code.proto";
 
 message ConfirmEmailAddressRequest {
     // a randomly generated code
@@ -47,6 +22,17 @@ message ConfirmEmailAddressRequest {
 
 message ConfirmEmailAddressResponse {}
 
+message ConfirmPhoneNumberRequest {
+    // a randomly generated code
+    string code = 1;
+
+    // the email address associated with the code
+    string phone_number_id = 2;
+}
+
+message ConfirmPhoneNumberResponse {}
+
 service ConfirmationService {
     rpc ConfirmEmailAddress(ConfirmEmailAddressRequest) returns (ConfirmEmailAddressResponse) {}
+    rpc ConfirmPhoneNumber(ConfirmPhoneNumberRequest) returns (ConfirmPhoneNumberResponse) {}
 }

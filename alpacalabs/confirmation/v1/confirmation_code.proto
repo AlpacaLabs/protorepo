@@ -1,0 +1,63 @@
+syntax = "proto3";
+
+package alpacalabs.confirmation.v1;
+
+option csharp_namespace = "AlpacaLabs.Confirmation.V1";
+option go_package = "github.com/AlpacaLabs/protorepo-confirmation-go/alpacalabs/confirmation/v1";
+option java_multiple_files = true;
+option java_outer_classname = "ConfirmationProto";
+option java_package = "com.alpacalabs.confirmation.v1";
+option objc_class_prefix = "ALC";
+option php_namespace = "AlpacaLabs\\Confirmation\\V1";
+
+import "google/protobuf/timestamp.proto";
+
+message EmailAddressConfirmationCode {
+    // primary key
+    string id = 1;
+
+    // the email address associated with this code
+    string email_address_id = 2;
+
+    // a randomly generated code
+    string code = 3;
+
+    // when the code was generated
+    google.protobuf.Timestamp created_at = 4;
+
+    // when the code expires
+    google.protobuf.Timestamp expires_at = 5;
+
+    // indicates whether a code has been used. Once used, all codes
+    // that belong to the account become stale.
+    bool used = 6;
+
+    // if true, this code cannot be used. When a user uses a code,
+    // all previously issued codes are rendered stale.
+    bool stale = 7;
+}
+
+message PhoneNumberConfirmationCode {
+    // primary key
+    string id = 1;
+
+    // the phone number associated with this code
+    string phone_number_id = 2;
+
+    // a randomly generated code
+    string code = 3;
+
+    // when the code was generated
+    google.protobuf.Timestamp created_at = 4;
+
+    // when the code expires
+    google.protobuf.Timestamp expires_at = 5;
+
+    // indicates whether a code has been used. Once used, all codes
+    // that belong to the account become stale.
+    bool used = 6;
+
+    // if true, this code cannot be used. When a user uses a code,
+    // all previously issued codes are rendered stale.
+    bool stale = 7;
+}

@@ -11,52 +11,52 @@ option objc_class_prefix = "ALA";
 option php_namespace = "AlpacaLabs\\Account\\V1";
 
 import "alpacalabs/pagination/v1/page.proto";
-import "alpacalabs/account/v1/email.proto";
+import "alpacalabs/account/v1/phone_number.proto";
 
 // a request to get all email addresses in the system.
 // this should be an admin-only ability.
-message GetEmailAddressesRequest {
+message GetPhoneNumbersRequest {
     alpacalabs.pagination.v1.CursorRequest cursor_request = 1;
 }
 
-message GetEmailAddressesResponse {
+message GetPhoneNumbersResponse {
     alpacalabs.pagination.v1.CursorResponse cursor_response = 1;
-    repeated EmailAddress email_addresses = 2;
+    repeated PhoneNumber phone_numbers = 2;
 }
 
-message GetEmailAddressByIDRequest {
+message GetPhoneNumberByIDRequest {
     string id = 1;
 }
 
-message GetEmailAddressByIDResponse {
-    EmailAddress email_address = 1;
+message GetPhoneNumberByIDResponse {
+    PhoneNumber phone_number = 1;
 }
 
-message AddEmailAddressRequest {
-    string email_address = 1;
+message AddPhoneNumberRequest {
+    string phone_number = 1;
     string account_id = 2;
 }
 
-message AddEmailAddressResponse {
-    EmailAddress email_address = 1;
+message AddPhoneNumberResponse {
+    PhoneNumber phone_number = 1;
 }
 
-message ConfirmEmailAddressRequest {
-    string email_address = 1;
+message ConfirmPhoneNumberRequest {
+    string phone_number = 1;
     string confirmation_code = 2;
 }
 
-message ConfirmEmailAddressResponse {
+message ConfirmPhoneNumberResponse {
 }
 
 // a request to get all email addresses in the system.
 // this should be an admin-only ability.
-message GetEmailAddressesForAccountIDRequest {
+message GetPhoneNumbersForAccountIDRequest {
     alpacalabs.pagination.v1.CursorRequest cursor_request = 1;
     string account_id = 2;
 }
 
-message GetEmailAddressesForAccountIDResponse {
+message GetPhoneNumbersForAccountIDResponse {
     alpacalabs.pagination.v1.CursorResponse cursor_response = 1;
-    repeated EmailAddress email_addresses = 2;
+    repeated PhoneNumber phone_numbers = 2;
 }
