@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+package alpacalabs.mfa.v1;
+
+option csharp_namespace = "AlpacaLabs.Mfa.V1";
+option go_package = "github.com/AlpacaLabs/protorepo-mfa-go/alpacalabs/mfa/v1";
+option java_multiple_files = true;
+option java_outer_classname = "MfaProto";
+option java_package = "com.alpacalabs.mfa.v1";
+option objc_class_prefix = "ALM";
+option php_namespace = "AlpacaLabs\\Mfa\\V1";
+
+message GetDeliveryOptionsRequest {
+    string account_id = 1;
+}
+
+message GetDeliveryOptionsResponse {
+    string code_id = 1;
+    CodeOptions code_options = 2;
+}
+
+message PhoneNumberOption {
+    // primary key
+    string id = 1;
+
+    // associated account
+    string account_id = 2;
+
+    // actual value
+    string phone_number = 3;
+}
+
+message EmailAddressOption {
+    // primary key
+    string id = 1;
+
+    // associated account
+    string account_id = 2;
+
+    // actual value
+    string email_address = 3;
+}
+
+message CodeOptions {
+    repeated PhoneNumberOption phone_numbers = 1;
+    repeated EmailAddressOption email_addresses = 2;
+    // TODO eventually we'll add Yubikey devices and backup recovery codes
+}

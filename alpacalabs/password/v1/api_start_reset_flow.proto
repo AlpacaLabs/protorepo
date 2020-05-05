@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package alpacalabs.password.v1;
+
+option csharp_namespace = "AlpacaLabs.Password.V1";
+option go_package = "github.com/AlpacaLabs/protorepo-password-go/alpacalabs/password/v1";
+option java_multiple_files = true;
+option java_outer_classname = "PasswordProto";
+option java_package = "com.alpacalabs.password.v1";
+option objc_class_prefix = "ALP";
+option php_namespace = "AlpacaLabs\\Password\\V1";
+
+message StartResetFlowRequest {
+    // email, username, or phone number
+    string account_identifier = 1;
+}
+
+message StartResetFlowResponse {}

@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package alpacalabs.mfa.v1;
+
+option csharp_namespace = "AlpacaLabs.Mfa.V1";
+option go_package = "github.com/AlpacaLabs/protorepo-mfa-go/alpacalabs/mfa/v1";
+option java_multiple_files = true;
+option java_outer_classname = "MfaProto";
+option java_package = "com.alpacalabs.mfa.v1";
+option objc_class_prefix = "ALM";
+option php_namespace = "AlpacaLabs\\Mfa\\V1";
+
+import "google/protobuf/timestamp.proto";
+
+message MFACode {
+    // primary key
+    string id = 1;
+
+    // the account to which this code belongs
+    string account_id = 2;
+
+    // a randomly generated code
+    string code = 3;
+
+    // when the code was generated
+    google.protobuf.Timestamp created_at = 4;
+
+    // when the code will expire
+    google.protobuf.Timestamp expires_at = 5;
+
+    // indicates whether a code has been used. Once used, a code becomes stale.
+    bool used = 6;
+
+    // if true, this code cannot be used. When a user uses a code,
+    // all previously issued codes are rendered stale.
+    bool stale = 7;
+}

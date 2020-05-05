@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package alpacalabs.password.v1;
+
+option csharp_namespace = "AlpacaLabs.Password.V1";
+option go_package = "github.com/AlpacaLabs/protorepo-password-go/alpacalabs/password/v1";
+option java_multiple_files = true;
+option java_outer_classname = "PasswordProto";
+option java_package = "com.alpacalabs.password.v1";
+option objc_class_prefix = "ALP";
+option php_namespace = "AlpacaLabs\\Password\\V1";
+
+import "alpacalabs/password/v1/api_start_reset_flow.proto";
+import "alpacalabs/password/v1/verify_code.proto";
+
+service PasswordService {
+    // initiate the password reset flow by providing an account identifier,
+    // which can be a username, email, or phone number.
+    // the account's primary email address will be emailed w/ the reset code.
+    rpc StartResetFlow(StartResetFlowRequest) returns (StartResetFlowResponse) {}
+
+    // complete the password reset flow by sending the reset code, the account id, and the new password
+    rpc VerifyCode (VerifyCodeRequest) returns (VerifyCodeResponse) {}
+}
