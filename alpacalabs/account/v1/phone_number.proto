@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package alpacalabs.account.v1;
+
+option csharp_namespace = "AlpacaLabs.Account.V1";
+option go_package = "github.com/AlpacaLabs/protorepo-account-go/alpacalabs/account/v1";
+option java_multiple_files = true;
+option java_outer_classname = "AccountProto";
+option java_package = "com.alpacalabs.account.v1";
+option objc_class_prefix = "ALA";
+option php_namespace = "AlpacaLabs\\Account\\V1";
+
+import "google/protobuf/timestamp.proto";
+
+message PhoneNumber {
+    string id = 1;
+    google.protobuf.Timestamp created_at = 2;
+    string account_id = 3;
+    string phone_number = 4;
+}

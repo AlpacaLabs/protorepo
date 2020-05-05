@@ -20,16 +20,6 @@ message Session {
     // and not all sessions in the database. great security feature to have!
     string secret = 2;
 
-    // the device type (e.g., quest, PDL, browser).
-    // TODO should this be an enum?
-    string device_type = 3;
-
-    // device's unique id
-    // Quest makes this easy for us, but on PDL (desktop) it's harder.
-    // MAC address is insufficient, b/c the network card can just be replaced.
-    // TODO discuss device_id on desktop further
-    string device_id = 4;
-
-    // the account (e.g., user, workstation, guest) to which this session belongs.
-    string account_id = 5;
+    // the account to which this session belongs.
+    string account_id = 3;
 }

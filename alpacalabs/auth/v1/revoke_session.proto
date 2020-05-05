@@ -12,11 +12,8 @@ option php_namespace = "AlpacaLabs\\Auth\\V1";
 
 // Request to revoke a session.
 message RevokeSessionByIDRequest {
-    // account id
-    // TODO required?
-    string account_id = 1;
     // session id
-    string session_id = 2;
+    string session_id = 1;
 }
 
 // Response from revoking a session.

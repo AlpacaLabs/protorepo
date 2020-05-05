@@ -12,14 +12,11 @@ option php_namespace = "AlpacaLabs\\Auth\\V1";
 
 // Request for logging in.
 message LoginRequest {
-    // email
-    string email_address = 1;
+    // email, username, or phone number
+    string account_identifier = 1;
+
     // password
     string password = 2;
-    // device type
-    string device_type = 3;
-    // device id
-    string device_id = 4;
 }
 
 // Response containing your new JWT.

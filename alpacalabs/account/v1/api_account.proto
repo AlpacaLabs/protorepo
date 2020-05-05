@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package alpacalabs.account.v1;
+
+option csharp_namespace = "AlpacaLabs.Account.V1";
+option go_package = "github.com/AlpacaLabs/protorepo-account-go/alpacalabs/account/v1";
+option java_multiple_files = true;
+option java_outer_classname = "AccountProto";
+option java_package = "com.alpacalabs.account.v1";
+option objc_class_prefix = "ALA";
+option php_namespace = "AlpacaLabs\\Account\\V1";
+
+import "alpacalabs/account/v1/account.proto";
+
+message CreateAccountRequest {
+    // required
+    string email_address = 1;
+
+    // optional
+    string username = 2;
+
+    // optional
+    string phone_number = 3;
+}
+
+message CreateAccountResponse {
+    Account account = 1;
+}
