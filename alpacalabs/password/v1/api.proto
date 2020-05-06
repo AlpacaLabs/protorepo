@@ -10,15 +10,34 @@ option java_package = "com.alpacalabs.password.v1";
 option objc_class_prefix = "ALP";
 option php_namespace = "AlpacaLabs\\Password\\V1";
 
-import "alpacalabs/password/v1/api_start_reset_flow.proto";
-import "alpacalabs/password/v1/verify_code.proto";
+import "alpacalabs/password/v1/api_password_reset.proto";
+import "alpacalabs/password/v1/api_check_password.proto";
 
 service PasswordService {
-    // initiate the password reset flow by providing an account identifier,
-    // which can be a username, email, or phone number.
-    // the account's primary email address will be emailed w/ the reset code.
-    rpc StartResetFlow(StartResetFlowRequest) returns (StartResetFlowResponse) {}
+    rpc CheckPassword(CheckPasswordRequest) returns (CheckPasswordResponse) {}
+}
 
-    // complete the password reset flow by sending the reset code, the account id, and the new password
-    rpc VerifyCode (VerifyCodeRequest) returns (VerifyCodeResponse) {}
+service PasswordResetService {
+    // GetDeliveryOptions is Step 1 in the password reset flow.
+    //
+    // In exchange for some account identifier (an email, username, or phone number)
+    // clients will receive their devices that can receive codes -- any of their
+    // confirmed email addresses and phone numbers -- so they can choose how they
+    // want to receive their code.
+    //
+    // Behind the scenes, this will persist a code in the DB. The response will
+    // contain that entity's primary key and delivery options for the client.
+    rpc GetDeliveryOptions(GetDeliveryOptionsRequest) returns (GetDeliveryOptionsResponse) {}
+
+    // DeliverCode is Step 2 in the password reset flow.
+    //
+    // The client sends the primary key of their code, as well as the primary key of
+    // an email address or phone number that will receive the code.
+    rpc DeliverCode(DeliverCodeRequest) returns (DeliverCodeResponse) {}
+
+    // VerifyCode is Step 3 in the password reset flow.
+    //
+    // The client sends the random code they received, the primary key of their account,
+    // and the new password they wish to use.
+    rpc VerifyCode(VerifyCodeRequest) returns (VerifyCodeResponse) {}
 }
