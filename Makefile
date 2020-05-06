@@ -11,6 +11,11 @@ BUILD_DIR := compiled
 
 SERVICES := auth pagination
 
+.PHONY: clean
+clean:
+	rm -rf repos/protorepo-*
+	rm -rf pb-go-*
+
 .PHONY: lint
 lint:
 	docker run --volume "$(shell pwd):/workspace" --workdir /workspace bufbuild/buf check lint
