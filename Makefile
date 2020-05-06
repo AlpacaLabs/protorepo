@@ -9,7 +9,7 @@ GO111MODULE := on
 
 BUILD_DIR := compiled
 
-SERVICES := auth pagination
+SERVICES := account auth confirmation hermes mfa pagination password
 
 .PHONY: clean
 clean:
@@ -38,13 +38,6 @@ check:
 	    protoc -I . ./alpacalabs/$$service/v1/*.proto --go_out=plugins=grpc,paths=source_relative:./${BUILD_DIR}/$$service; \
 	done
 	@echo "${GREEN}✓ Everything compiles!${NC}\n"
-
-.PHONY: clean
-clean:
-	@rm -rf ${BUILD_DIR} || true
-	@for service in ${SERVICES} ; do \
-	    rm -rf $$service/pb-* || true; \
-	done
 
 .PHONY: install-proto
 install-proto:
