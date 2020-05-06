@@ -10,14 +10,13 @@ option java_package = "com.alpacalabs.mfa.v1";
 option objc_class_prefix = "ALM";
 option php_namespace = "AlpacaLabs\\Mfa\\V1";
 
-message SendCodeRequest {
+message DeliverCodeRequest {
     // foreign key referencing code
     string code_id = 1;
-    string account_id = 2;
     oneof device_id {
-        string email_address_id = 3;
-        string phone_number_id = 4;
+        string email_address_id = 2;
+        string phone_number_id = 3;
     }
 }
 
-message SendCodeResponse {}
+message DeliverCodeResponse {}
