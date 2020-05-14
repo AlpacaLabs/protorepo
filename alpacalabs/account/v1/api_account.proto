@@ -35,11 +35,17 @@ message GetAccountRequest {
         // look up account by confirmed email address
         string email_address = 2;
 
+        // look up account by confirmed email address ID
+        string email_address_id = 3;
+
         // look up account by confirmed phone number
-        string phone_number = 3;
+        string phone_number = 4;
+
+        // look up account by confirmed phone number ID
+        string phone_number_id = 5;
 
         // look up account by username
-        string username = 4;
+        string username = 6;
     }
 }
 
