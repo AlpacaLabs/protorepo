@@ -22,11 +22,9 @@ service AccountService {
     rpc ConfirmEmailAddress(ConfirmEmailAddressRequest) returns (ConfirmEmailAddressResponse) {}
     rpc GetEmailAddresses(GetEmailAddressesRequest) returns (GetEmailAddressesResponse) {}
     rpc GetEmailAddressByID(GetEmailAddressByIDRequest) returns (GetEmailAddressByIDResponse) {}
-    rpc GetEmailAddressesForAccountID(GetEmailAddressesForAccountIDRequest) returns (GetEmailAddressesForAccountIDResponse) {}
 
     rpc AddPhoneNumber(AddPhoneNumberRequest) returns (AddPhoneNumberResponse) {}
     rpc ConfirmPhoneNumber(ConfirmPhoneNumberRequest) returns (ConfirmPhoneNumberResponse) {}
     rpc GetPhoneNumbers(GetPhoneNumbersRequest) returns (GetPhoneNumbersResponse) {}
     rpc GetPhoneNumberByID(GetPhoneNumberByIDRequest) returns (GetPhoneNumberByIDResponse) {}
-    rpc GetPhoneNumbersForAccountID(GetPhoneNumbersForAccountIDRequest) returns (GetPhoneNumbersForAccountIDResponse) {}
 }
