@@ -24,22 +24,28 @@ message GetEmailAddressesResponse {
     repeated EmailAddress email_addresses = 2;
 }
 
-message GetEmailAddressByIDRequest {
+message GetEmailAddressRequest {
     string id = 1;
 }
 
-message GetEmailAddressByIDResponse {
+message GetEmailAddressResponse {
     EmailAddress email_address = 1;
 }
 
-message AddEmailAddressRequest {
+message RegisterEmailAddressRequest {
     string email_address = 1;
     string account_id = 2;
 }
 
-message AddEmailAddressResponse {
+message RegisterEmailAddressResponse {
     EmailAddress email_address = 1;
 }
+
+message UnregisterEmailAddressRequest {
+    string email_address_id = 1;
+}
+
+message UnregisterEmailAddressResponse {}
 
 message ConfirmEmailAddressRequest {
     string email_address = 1;
