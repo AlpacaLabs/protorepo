@@ -10,10 +10,10 @@ option java_package = "com.alpacalabs.confirmation.v1";
 option objc_class_prefix = "ALC";
 option php_namespace = "AlpacaLabs\\Confirmation\\V1";
 
-message CreateEmailAddressConfirmationCode {
+message CreateEmailAddressConfirmationCodeRequest {
     string email_address_id = 1;
 }
 
-message CreatePhoneNumberConfirmationCode {
+message CreatePhoneNumberConfirmationCodeRequest {
     string phone_number_id = 1;
 }
