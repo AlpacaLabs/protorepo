@@ -28,17 +28,6 @@ Avoid breaking changes at all costs.
 
 ## Package versioning
 Make a new package in lieu of breaking changes.
-```proto
-package alpacalabs.citadel.v1;
-
-option csharp_namespace = "AlpacaLabs.Citadel.V1";
-option go_package = "citadelv1";
-option java_multiple_files = true;
-option java_outer_classname = "CitadelProto";
-option java_package = "com.alpacalabs.citadel.v1";
-option objc_class_prefix = "ICX";
-option php_namespace = "AlpacaLabs\\Citadel\\V1";
-```
 
 ## Deprecations
 Instead of making a breaking change, rely on deprecation of types.

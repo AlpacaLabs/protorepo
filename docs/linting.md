@@ -29,6 +29,3 @@ Checks that RPCs are not client streaming or server streaming.
 
 This [discussion](https://github.com/twitchtv/twirp/issues/70#issuecomment-470367807) enumerates
 some concerns with gRPC streaming.
-
-CLS, the client-library-service, has certainly had some issues with streaming when downloading
-metadata from Citadel.
