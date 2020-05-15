@@ -48,11 +48,7 @@ message UnregisterPhoneNumberRequest {
 message UnregisterPhoneNumberResponse {}
 
 message ConfirmPhoneNumberRequest {
-    string phone_number = 1;
-    string confirmation_code = 2;
-}
-
-message ConfirmPhoneNumberResponse {
+    string phone_number_id = 1;
 }
 
 // a request to get all email addresses in the system.

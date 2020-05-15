@@ -48,11 +48,7 @@ message UnregisterEmailAddressRequest {
 message UnregisterEmailAddressResponse {}
 
 message ConfirmEmailAddressRequest {
-    string email_address = 1;
-    string confirmation_code = 2;
-}
-
-message ConfirmEmailAddressResponse {
+    string email_address_id = 1;
 }
 
 // a request to get all email addresses in the system.

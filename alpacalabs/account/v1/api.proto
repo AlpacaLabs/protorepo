@@ -20,13 +20,11 @@ service AccountService {
 
     rpc RegisterEmailAddress(RegisterEmailAddressRequest) returns (RegisterEmailAddressResponse) {}
     rpc UnregisterEmailAddress(UnregisterEmailAddressRequest) returns (UnregisterEmailAddressResponse) {}
-    rpc ConfirmEmailAddress(ConfirmEmailAddressRequest) returns (ConfirmEmailAddressResponse) {}
     rpc GetEmailAddress(GetEmailAddressRequest) returns (GetEmailAddressResponse) {}
     rpc GetEmailAddresses(GetEmailAddressesRequest) returns (GetEmailAddressesResponse) {}
 
     rpc RegisterPhoneNumber(RegisterPhoneNumberRequest) returns (RegisterPhoneNumberResponse) {}
     rpc UnregisterPhoneNumber(UnregisterPhoneNumberRequest) returns (UnregisterPhoneNumberResponse) {}
-    rpc ConfirmPhoneNumber(ConfirmPhoneNumberRequest) returns (ConfirmPhoneNumberResponse) {}
     rpc GetPhoneNumber(GetPhoneNumberRequest) returns (GetPhoneNumberResponse) {}
     rpc GetPhoneNumbers(GetPhoneNumbersRequest) returns (GetPhoneNumbersResponse) {}
 }
