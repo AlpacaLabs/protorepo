@@ -10,9 +10,10 @@ option java_package = "com.alpacalabs.confirmation.v1";
 option objc_class_prefix = "ALC";
 option php_namespace = "AlpacaLabs\\Confirmation\\V1";
 
-import "alpacalabs/confirmation/v1/api_confirm.proto";
+message CreateEmailAddressConfirmationCode {
+    string email_address_id = 1;
+}
 
-service ConfirmationService {
-    rpc ConfirmEmailAddress(ConfirmEmailAddressRequest) returns (ConfirmEmailAddressResponse) {}
-    rpc ConfirmPhoneNumber(ConfirmPhoneNumberRequest) returns (ConfirmPhoneNumberResponse) {}
+message CreatePhoneNumberConfirmationCode {
+    string phone_number_id = 1;
 }
