@@ -11,6 +11,13 @@ BUILD_DIR := compiled
 
 SERVICES := account auth confirmation hermes mfa pagination password
 
+.PHONY: all
+all:
+	@$(MAKE) clean
+	@echo "${BLUE}✓ Publishing changes to GitHub...${NC}\n"
+	./build.sh
+	@echo "${GREEN}✓ All done!${NC}\n"
+
 .PHONY: clean
 clean:
 	rm -rf repos/protorepo-*
@@ -19,13 +26,6 @@ clean:
 .PHONY: lint
 lint:
 	docker run --volume "$(shell pwd):/workspace" --workdir /workspace bufbuild/buf check lint
-
-.PHONY: all
-all:
-	@$(MAKE) clean
-	@echo "${BLUE}✓ Publishing changes to GitHub...${NC}\n"
-	./build.sh
-	@echo "${GREEN}✓ All done!${NC}\n"
 
 .PHONY: check
 check:
