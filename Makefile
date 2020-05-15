@@ -22,9 +22,9 @@ lint:
 
 .PHONY: all
 all:
-	@$(MAKE) check
+	@$(MAKE) clean
 	@echo "${BLUE}✓ Publishing changes to GitHub...${NC}\n"
-	@./build.sh
+	./build.sh
 	@echo "${GREEN}✓ All done!${NC}\n"
 
 .PHONY: check
