@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package alpacalabs.event.v1;
+
+option csharp_namespace = "AlpacaLabs.Event.V1";
+option go_package = "github.com/AlpacaLabs/protorepo-event-go/alpacalabs/event/v1";
+option java_multiple_files = true;
+option java_outer_classname = "EventProto";
+option java_package = "com.alpacalabs.event.v1";
+option objc_class_prefix = "ALA";
+option php_namespace = "AlpacaLabs\\Event\\V1";
+
+message TraceInfo {
+    string trace_id = 1;
+    bool sampled = 2;
+}
+
+message EventInfo {
+    // a unique id for this event
+    string event_id = 1;
+}

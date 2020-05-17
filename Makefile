@@ -9,7 +9,7 @@ GO111MODULE := on
 
 BUILD_DIR := compiled
 
-SERVICES := account auth confirmation hermes mfa pagination password
+SERVICES := account auth confirmation event hermes mfa pagination password
 
 .PHONY: all
 all:
