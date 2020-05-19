@@ -1,6 +1,7 @@
 # protorepo
 
-A monorepo for all our [Protocol Buffers](https://developers.google.com/protocol-buffers).
+A monorepo for all our [Protocol Buffers](https://developers.google.com/protocol-buffers),
+inspired by [Namely](https://medium.com/namely-labs/how-we-build-grpc-services-at-namely-52a3ae9e7c35).
 
 ## FAQ
 ### What services exist? 
@@ -37,14 +38,12 @@ From the [docs](https://grpc.io/):
 > and authentication. It is also applicable in last mile of distributed computing to connect devices, mobile 
 > applications and browsers to backend services.
 
-### How do I contribute?
-See our [docs](docs/contributing.md).
-
 ### How does the Build Strategy work?
-See our [docs](docs/build.md).
+See this [blog post](https://medium.com/namely-labs/how-we-build-grpc-services-at-namely-52a3ae9e7c35)
+from Namely.
 
 ### What are the conventional linting standards?
-See our [docs](docs/linting.md).
+See the lint conventions provided by [buf](https://buf.build/docs/lint-overview).
 
 ### TODO / Challenges
 - Experimental changes require PR approvals.
